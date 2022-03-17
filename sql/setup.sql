@@ -3,8 +3,8 @@
 DROP TABLE IF EXISTS characters CASCADE;
 
 CREATE TABLE characters (
-    character_id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY NOT NULL,
-    character_name TEXT NOT NULL,
-    character_film TEXT NOT NULL,
-    character_age VARCHAR (512) NOT NULL
+    id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY NOT NULL,
+    name TEXT NOT NULL,
+    film_name TEXT NOT NULL,
+    age VARCHAR (512) NOT NULL
 );

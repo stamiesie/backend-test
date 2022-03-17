@@ -1,19 +1,19 @@
-const pool = require('../lib/utils/pool');
-const characters = require('./seed-data');
+const pool = require('../lib/utils/pool.js');
+const characters = require('./seed-data.js');
 
 const seedTable = async () => {
   try {
     await Promise.all(
-      characters.map(async (char) => {
-        return pool.query(`
-            INSERT INTO characters (character_name, character_film, character_age)
+      characters.map(async (character) => {
+        await pool.query(`
+            INSERT INTO characters (name, film_name, age)
             VALUES ($1, $2, $3)
             RETURNING *;
             `,
         [
-          char.character_name,
-          char.character_film,
-          char.character_age,
+          character.name,
+          character.film_name,
+          character.age,
         ]
         );
       })
@@ -25,7 +25,3 @@ const seedTable = async () => {
 };
 
 seedTable();
-
-module.exports = {
-  seedTable,
-};
