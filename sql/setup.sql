@@ -6,5 +6,6 @@ CREATE TABLE characters (
     id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY NOT NULL,
     name TEXT NOT NULL,
     film_name TEXT NOT NULL,
-    age VARCHAR (512) NOT NULL
+    age VARCHAR (512) NOT NULL,
+    voice_actor JSON NOT NULL
 );
